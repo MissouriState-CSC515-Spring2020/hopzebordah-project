@@ -1,0 +1,19 @@
+{
+  "name": "hopzebordah-project",
+  "version": "1.0.0",
+  "description": "a project for csc515 advanced web programming",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MissouriState-CSC515-Spring2020/hopzebordah-project.git"
+  },
+  "author": "alexander peters",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MissouriState-CSC515-Spring2020/hopzebordah-project/issues"
+  },
+  "homepage": "https://github.com/MissouriState-CSC515-Spring2020/hopzebordah-project#readme"
+}
