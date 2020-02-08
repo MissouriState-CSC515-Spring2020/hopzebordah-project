@@ -10,6 +10,7 @@
 
                 <b-navbar-nav>
                     <b-nav-item :to="'/home'">Home</b-nav-item>
+                    <b-nav-item :to="'/category'">Categories</b-nav-item>
                 </b-navbar-nav>
 
             </b-collapse>
@@ -20,7 +21,7 @@
 
 <script>
 export default {
-    name: 'NavigationBar'
+    name: 'TheNavigationBar'
 }
 </script>
 

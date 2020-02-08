@@ -6,6 +6,6 @@
 
 <script>
 export default {
-    name: 'CategoryView'
+    name: 'TheCategoryView'
 }
 </script>

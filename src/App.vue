@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <navigation-bar></navigation-bar>
-    <router-view></router-view>
+    <the-navigation-bar></the-navigation-bar>
+    <b-container fluid>
+      <router-view></router-view>
+    </b-container>
   </div>
 </template>
 
 <script>
-import NavigationBar from './components/common/NavigationBar.vue'
+import TheNavigationBar from './components/TheNavigationBar.vue'
 
 export default {
   name: 'app',
   components: {
-    NavigationBar
+    TheNavigationBar
   }
 }
 </script>

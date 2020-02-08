@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '@/components/views/HomeView'
-import CategoryView from '@/components/views/CategoryView'
-import SingleView from '@/components/views/SingleView'
+import TheHomeView from '@/views/TheHomeView'
+import TheCategoryView from '@/views/TheCategoryView'
+import TheSingleView from '@/views/TheSingleView'
 
 Vue.use(VueRouter)
 
@@ -13,17 +13,17 @@ export default new VueRouter({
             path: '/',
             alias: '/home',
             name: 'Home',
-            component: HomeView
+            component: TheHomeView
         },
         {
             path: '/category',
             name: 'Category',
-            component: CategoryView
+            component: TheCategoryView
         },
         {
             path: '/single',
             name: 'Single',
-            component: SingleView
+            component: TheSingleView
         }
     ]
 })
