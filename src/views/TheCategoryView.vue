@@ -11,6 +11,13 @@
                         :clickFunc="routeToSingleView"
                     />
                 </b-col>
+                <b-col cols="12">
+                    <p>
+                        tags: [
+                        <span v-for="tag in tags" :key="tag">{{ tag }}, </span>
+                        ]
+                    </p>
+                </b-col>
             </b-row>
         </b-col>
     </b-row>
@@ -34,7 +41,15 @@ export default {
     },
     data() {
         return {
-            category: this.$route.params.category
+            category: this.$route.params.category,
+            tags: [
+                'earth', 
+                'nature',
+                'trees',
+                'mountains',
+                'fresh',
+                'water'
+            ]
         }
     },
     methods: {
