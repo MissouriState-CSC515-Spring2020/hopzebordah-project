@@ -10,7 +10,7 @@
 
                 <b-navbar-nav>
                     <b-nav-item :to="'/home'">Home</b-nav-item>
-                    <b-nav-item :to="'/category'">Categories</b-nav-item>
+                    <b-nav-item :to="{name: 'Category', params: {category: 'nature'}}">Categories</b-nav-item>
                 </b-navbar-nav>
 
             </b-collapse>

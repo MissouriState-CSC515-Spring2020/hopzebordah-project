@@ -1,8 +1,8 @@
 <template>
     <b-row>
-        <b-col class="mx-auto">
-            <img class="w-50" :src="asset" alt="image detail"/>
-            <div class="w-50 mx-auto mt-3">
+        <b-col class="mx-auto text-center">
+            <img class="w-75" @click="clickFunc()" :src="asset" alt="image detail"/>
+            <div class="w-75 mx-auto mt-3">
                 <h3>
                     {{ title }}
                 </h3>
@@ -17,7 +17,7 @@
 <script>
 export default {
     name: 'ImageDetail',
-    props: ['asset', 'title', 'desc']
+    props: ['asset', 'title', 'desc', 'clickFunc']
 }
 </script>
 
