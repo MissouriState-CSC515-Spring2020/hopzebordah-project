@@ -1,5 +1,9 @@
 <template>
     <b-row>
+        <vue-headful
+            title="image vuer home"
+            description="home view"
+        />
         <b-col class="pl-5 pr-5 pt-3 text-center">
             <h2>image vuer</h2>
             <b-row>

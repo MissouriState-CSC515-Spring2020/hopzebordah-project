@@ -1,5 +1,9 @@
 <template>
     <b-row>
+        <vue-headful
+            title="image vuer category"
+            description="category view"
+        />
         <b-col class="pl-5 pr-5 pt-3 text-center">
             <h2>category: {{this.category}}</h2>
             <b-row>

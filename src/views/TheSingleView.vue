@@ -1,5 +1,9 @@
 <template>
     <b-row>
+        <vue-headful
+            title="image vuer single"
+            description="single image vue"
+        />
         <b-col class="pl-5 pr-5 pt-3 text-center">
             <image-detail
             :asset="require('@/assets/asturias_gorge.jpeg')"

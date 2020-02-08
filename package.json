@@ -2,7 +2,7 @@
   "name": "hopzebordah-project",
   "version": "0.1.0",
   "private": true,
-  "author": "alexander peters aalcocerpeters@gmail.com",  
+  "author": "alexander peters aalcocerpeters@gmail.com",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -15,6 +15,7 @@
     "lorem-ipsum": "^2.0.3",
     "uuid": "^3.4.0",
     "vue": "^2.6.10",
+    "vue-headful": "^2.1.0",
     "vue-router": "^3.1.5"
   },
   "devDependencies": {
