@@ -1,7 +1,7 @@
 <template>
     <b-row>
         <b-col class="pl-5 pr-5 pt-3 text-center">
-            <h2>home</h2>
+            <h2>image vuer</h2>
             <b-row>
                 <b-col v-for="i in 10" :key="i" class="p-3" cols="12" sm="6" md="4" lg="3">
                     <image-detail

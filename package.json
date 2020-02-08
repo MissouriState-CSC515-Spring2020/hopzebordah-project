@@ -2,6 +2,7 @@
   "name": "hopzebordah-project",
   "version": "0.1.0",
   "private": true,
+  "author": "alexander peters aalcocerpeters@gmail.com",  
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
