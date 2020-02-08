@@ -1,18 +1,45 @@
 <template>
-    <div>
-        <h1>HomeView</h1>
-        <p>
-        <router-link :to="'/category'">Router link to CategoryView</router-link>
-        </p>
-        <p>
-        <router-link :to="'/single'">Router link to SingleView</router-link>
-        </p>
-    </div>
+    <b-row>
+        <b-col class="pl-5 pr-5 pt-3 text-center">
+            <h2>home</h2>
+            <b-row>
+                <b-col v-for="i in 10" :key="i" class="p-3" cols="12" sm="6" md="4" lg="3">
+                    <image-detail
+                        :asset="require('@/assets/asturias_gorge.jpeg')"
+                        :title="getLipText(1)"
+                        :desc="getLipText(2)"
+                        :clickFunc="routeToSingleView"
+                    />
+                </b-col>
+            </b-row>
+        </b-col>
+    </b-row>
 </template>
 
 <script>
+import { LoremIpsum } from 'lorem-ipsum'
+
+import ImageDetail from '@/components/ImageDetail'
+
+const lip = new LoremIpsum({
+    wordsPerSentence: {
+        min: 1, max: 4
+    }
+})
+
 export default {
-    name: 'TheHomeView'
+    name: 'TheHomeView',
+    components: {
+        ImageDetail
+    },
+    methods: {
+        getLipText(numSentences) {
+            return lip.generateSentences(numSentences);
+        },
+        routeToSingleView() {
+            this.$router.push('/single')
+        }
+    }
 }
 </script>
 

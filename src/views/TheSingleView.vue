@@ -1,6 +1,6 @@
 <template>
     <b-row>
-        <b-col class="p-5 text-center">
+        <b-col class="pl-5 pr-5 pt-3 text-center">
             <image-detail
             :asset="require('@/assets/asturias_gorge.jpeg')"
             title="The Cares Gorge, Asturias, Spain"
@@ -25,7 +25,7 @@ export default {
     },
     methods: {
         genRandomId() {
-            return uuid.v4();
+            return uuid.v4()
         }
     }
 }

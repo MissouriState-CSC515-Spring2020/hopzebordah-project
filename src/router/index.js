@@ -4,10 +4,6 @@ import TheHomeView from '@/views/TheHomeView'
 import TheCategoryView from '@/views/TheCategoryView'
 import TheSingleView from '@/views/TheSingleView'
 
-const Categories = {
-    template: `<div>Categories</div>`
-}
-
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -18,11 +14,6 @@ export default new VueRouter({
             alias: '/home',
             name: 'Home',
             component: TheHomeView
-        },
-        {
-            path: '/categories',
-            name: 'Categories',
-            component: Categories
         },
         {
             path: '/category/:category',

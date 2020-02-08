@@ -13,7 +13,7 @@
                 </b-col>
                 <b-col cols="12">
                     <p>
-                        tags: [
+                        category tags: [
                         <span v-for="tag in tags" :key="tag">{{ tag }}, </span>
                         ]
                     </p>

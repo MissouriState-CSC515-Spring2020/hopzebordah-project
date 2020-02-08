@@ -3,9 +3,9 @@
         <b-col class="mx-auto text-center">
             <img class="w-75" @click="clickFunc()" :src="asset" alt="image detail"/>
             <div class="w-75 mx-auto mt-3">
-                <h3>
+                <h5>
                     {{ title }}
-                </h3>
+                </h5>
                 <p>
                     {{ desc }}
                 </p>
