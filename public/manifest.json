@@ -1,0 +1,14 @@
+{
+    "name": "Image Vuer",
+    "short_name": "Vuer",
+    "description": "Look at images in a Vue PWA",
+    "start_url": "/",
+    "background_color": "#eeeeee",
+    "theme_color": "#0f4a73",
+    "display": "standalone",
+    "icons": [{
+        "src": "static/icon_256x256.png",
+        "sizes": "256x256",
+        "type": "image/png"
+    }]
+}
