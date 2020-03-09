@@ -1,26 +1,24 @@
-# Repository Alexander Peter's CSC 515 Class Project
+# hopzebordah-project
 
-## Installation
-
-Clone the project and install npm packages.
-
-```bash
-git clone https://github.com/MissouriState-CSC515-Spring2020/hopzebordah-project.git
-npm i
+## Project setup
+```
+npm install
 ```
 
-## Usage
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-Included are several scripts for building and running the project. 
-
-### Building
-
-```bash
+### Compiles and minifies for production
+```
 npm run build
 ```
 
-### Running
-
-```bash
-npm run start
+### Lints and fixes files
 ```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
