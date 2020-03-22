@@ -2,7 +2,7 @@
   <div id="app">
     <the-navigation-bar></the-navigation-bar>
     <b-container fluid>
-      <router-view></router-view>
+      <router-view :key="$route.fullPath"></router-view>
     </b-container>
   </div>
 </template>
