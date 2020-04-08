@@ -21,7 +21,7 @@ const routes = [
         component: TheCategoryView
     },
     {
-        path: '/single',
+        path: '/video/:id',
         name: 'Single',
         component: TheSingleView
     },

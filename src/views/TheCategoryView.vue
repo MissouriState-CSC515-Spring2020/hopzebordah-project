@@ -1,26 +1,21 @@
 <template>
     <b-row>
         <vue-headful
-            title="image vuer category"
+            title="vid vuer category"
             description="category view"
         />
         <b-col class="pl-5 pr-5 pt-3 text-center">
             <h2>category: {{this.category}}</h2>
             <b-row>
-                <b-col v-for="i in 10" :key="i" class="p-3" cols="12" sm="6" md="4" lg="3">
-                    <image-detail
-                        :asset="require('@/assets/asturias_gorge.jpeg')"
-                        :title="getLipText(1)"
-                        :desc="getLipText(2)"
-                        :clickFunc="routeToSingleView"
+                <b-col v-for="video in results.items" :key="video.id.videoId" class="p-3" cols="12" sm="6" md="4" lg="3">
+                    <video-detail
+                        :src="video.snippet.thumbnails.high.url"
+                        :title="video.snippet.title"
+                        :desc="video.snippet.description"
+                        :clickFunc="() => {
+                            routeToSingleVideoView(video.id.videoId)
+                        }"
                     />
-                </b-col>
-                <b-col cols="12">
-                    <p>
-                        category tags: [
-                        <span v-for="tag in tags" :key="tag">{{ tag }}, </span>
-                        ]
-                    </p>
                 </b-col>
             </b-row>
         </b-col>
@@ -28,41 +23,43 @@
 </template>
 
 <script>
-import { LoremIpsum } from 'lorem-ipsum'
+import requestService from '@/services/requestService.js'
 
-import ImageDetail from '@/components/ImageDetail'
-
-const lip = new LoremIpsum({
-    wordsPerSentence: {
-        min: 1, max: 4
-    }
-})
+import VideoDetail from '@/components/VideoDetail'
 
 export default {
     name: 'TheCategoryView',
     components: {
-        ImageDetail
+        VideoDetail
     },
     data() {
         return {
             category: this.$route.params.category,
-            tags: [
-                'earth', 
-                'nature',
-                'trees',
-                'mountains',
-                'fresh',
-                'water'
-            ]
+            results: {}
         }
     },
     methods: {
-        getLipText(numSentences) {
-            return lip.generateSentences(numSentences);
+        getVideosByKeyword(keyword) {
+            requestService.searchVideosByKeyword(keyword)
+            .then(response => {
+                this.results = response
+            })
+            .catch(e => {
+                this.$bvToast.toast(`An error occurred fetching data. Sorry :/`, {
+                    title: 'Error',
+                    autoHideDelay: 4000
+                })
+            })
         },
-        routeToSingleView() {
-            this.$router.push('/single')
+        getVideo(index) {
+            return this.results.items[index]
+        },
+        routeToSingleVideoView(videoId) {
+            this.$router.push(`/video/${videoId}`)
         }
+    },
+    mounted() {
+        this.getVideosByKeyword(this.category)
     }
 }
 </script>

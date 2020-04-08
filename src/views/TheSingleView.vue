@@ -1,36 +1,62 @@
 <template>
     <b-row>
         <vue-headful
-            title="image vuer single"
+            title="vid vuer single"
             description="single image vue"
         />
         <b-col class="pl-5 pr-5 pt-3 text-center">
-            <image-detail
-            :asset="require('@/assets/asturias_gorge.jpeg')"
-            title="The Cares Gorge, Asturias, Spain"
-            desc="This image was taken from above the beautiful Cares Gorge in the Picos de Europa mountain rage in northern Spain. "
-            />
-            <p>
-                {{ this.genRandomId() }}
-            </p>
+            <div v-if="dataLoaded">
+                <video-detail
+                    :src="video.snippet.thumbnails.high.url"
+                    :title="video.snippet.title"
+                    :desc="video.snippet.description"
+                    :clickFunc="sendUserToOriginalVideo"
+                />
+                <p>
+                    video id: {{ video.id }}
+                </p>
+            </div>
         </b-col>
     </b-row>
 </template>
 
 <script>
-import uuid from 'uuid'
+import requestService from '@/services/requestService.js'
 
-import ImageDetail from '@/components/ImageDetail' 
+import VideoDetail from '@/components/VideoDetail'
 
 export default {
     name: 'TheSingleView',
     components: {
-        ImageDetail
+        VideoDetail
+    },
+    data() {
+        return {
+            dataLoaded: false,
+            video: {}
+        };
     },
     methods: {
-        genRandomId() {
-            return uuid.v4()
+        getVideo(id) {
+            requestService.getVideoById(id)
+            .then(response => {
+                this.video = response.items[0]
+                this.dataLoaded = true
+                console.log(this.video)
+            })
+            .catch(e => {
+                this.$bvToast.toast(`An error occurred fetching data. Sorry :/`, {
+                    title: 'Error',
+                    autoHideDelay: 4000
+                })
+            })
+        },
+        sendUserToOriginalVideo() {
+            window.location.href = `https://www.youtube.com/watch?v=${this.$route.params['id']}`
         }
+    },
+    mounted() {
+        this.getVideo(this.$route.params['id'])
     }
 }
 </script>

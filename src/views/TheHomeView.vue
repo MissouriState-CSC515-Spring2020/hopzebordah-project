@@ -1,18 +1,20 @@
 <template>
     <b-row>
         <vue-headful
-            title="image vuer home"
+            title="vid vuer home"
             description="home view"
         />
         <b-col class="pl-5 pr-5 pt-3 text-center">
-            <h2>image vuer</h2>
+            <h2>vid vuer</h2>
             <b-row>
-                <b-col v-for="i in 10" :key="i" class="p-3" cols="12" sm="6" md="4" lg="3">
-                    <image-detail
-                        :asset="require('@/assets/asturias_gorge.jpeg')"
-                        :title="getLipText(1)"
-                        :desc="getLipText(2)"
-                        :clickFunc="routeToSingleView"
+                <b-col v-for="video in results.items" :key="video.id.videoId" class="p-3" cols="12" sm="6" md="4" lg="3">
+                    <video-detail
+                        :src="video.snippet.thumbnails.high.url"
+                        :title="video.snippet.title"
+                        :desc="video.snippet.description"
+                        :clickFunc="() => {
+                            routeToSingleVideoView(video.id.videoId)
+                        }"
                     />
                 </b-col>
             </b-row>
@@ -21,28 +23,42 @@
 </template>
 
 <script>
-import { LoremIpsum } from 'lorem-ipsum'
+import requestService from '@/services/requestService.js'
 
-import ImageDetail from '@/components/ImageDetail'
-
-const lip = new LoremIpsum({
-    wordsPerSentence: {
-        min: 1, max: 4
-    }
-})
+import VideoDetail from '@/components/VideoDetail'
 
 export default {
     name: 'TheHomeView',
     components: {
-        ImageDetail
+        VideoDetail
+    },
+    data() {
+        return {
+            results: {}
+        }
     },
     methods: {
-        getLipText(numSentences) {
-            return lip.generateSentences(numSentences);
+        getVideosByKeyword(keyword) {
+            requestService.searchVideosByKeyword(keyword)
+            .then(response => {
+                this.results = response
+            })
+            .catch(e => {
+                this.$bvToast.toast(`An error occurred fetching data. Sorry :/`, {
+                    title: 'Error',
+                    autoHideDelay: 4000
+                })
+            })
         },
-        routeToSingleView() {
-            this.$router.push('/single')
+        getVideo(index) {
+            return this.results.items[index]
+        },
+        routeToSingleVideoView(videoId) {
+            this.$router.push(`/video/${videoId}`)
         }
+    },
+    mounted() {
+        this.getVideosByKeyword('hiking')
     }
 }
 </script>
