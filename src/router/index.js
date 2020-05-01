@@ -5,6 +5,8 @@ import TheCategoryView from '@/views/TheCategoryView'
 import TheSingleView from '@/views/TheSingleView'
 import The404View from '@/views/The404View'
 
+// I think I am done with checkpoint6 already?
+
 Vue.use(VueRouter)
 
 const routes = [
