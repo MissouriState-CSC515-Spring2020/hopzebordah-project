@@ -7,9 +7,10 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start": "npm run build && serve dist"
+    "start": "npm run build && serve -s dist"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "bootstrap-vue": "^2.1.0",
     "core-js": "^3.4.4",
     "lorem-ipsum": "^2.0.3",
@@ -47,7 +48,10 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+      "no-console": "off",
+      "no-unused-vars": "off"
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }

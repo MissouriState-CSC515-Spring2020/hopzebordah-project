@@ -2,7 +2,7 @@
     <div>
         <b-navbar toggleable="md" type="light" variant="light">
 
-            <b-navbar-brand href="/">image vuer</b-navbar-brand>
+            <b-navbar-brand href="/">vid vuer</b-navbar-brand>
 
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
