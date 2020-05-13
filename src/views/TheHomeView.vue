@@ -25,12 +25,10 @@
 <script>
 import requestService from '@/services/requestService.js'
 
-import VideoDetail from '@/components/VideoDetail'
-
 export default {
     name: 'TheHomeView',
     components: {
-        VideoDetail
+        VideoDetail: () => import('@/components/VideoDetail')
     },
     data() {
         return {
